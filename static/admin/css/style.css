@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital@1&family=Roboto:wght@500&family=Source+Code+Pro&display=swap');
+
+body {
+    background-color: rgb(230, 228, 228);
+}
+
+.container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.position {
+    height: 20vh;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    text-align: center;
+}

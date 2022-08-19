@@ -1,4 +1,5 @@
 from http.client import HTTPResponse
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
 from .form import *
@@ -21,4 +22,4 @@ class RecordsFile(View):
 
 class PatientRecords(View):
     def get(self, request):
-        return HTTPResponse('Hi you made it')
+        return HttpResponse("Hello Rochak!")
