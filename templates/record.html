@@ -8,14 +8,13 @@ Records
 
 
 {% block body %}
-{% csrf_token %}
 <div class="container">
     <h3>Patient Record</h3>
     <div class="position">
-        <form>
-            <label for="myfile">Select the patient file :</label>
-            <input type="file" id="myfile" name="myfile"><br><br>
-            <button class="btn btn-primary" type="submit" id="submit-button">Submit</button>
+        <form action="", method="POST" class="ui form" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form}}
+            <button class="ui button primary" type="submit" id="submit-button">Submit</button>
         </form>
     </div>
 </div>

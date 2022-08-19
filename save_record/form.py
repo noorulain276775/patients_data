@@ -1,11 +1,14 @@
 from django import forms
 from .models import *
 
-class RecordForm(forms.ModelForm):
+# class RecordForm(forms.ModelForm):
 
-   class Meta:
-      model = Patients
-      fields = ['medical_record','first_name','last_name', 'date_of_birth']
+#    class Meta:
+#       model = Patients
+#       fields = ['medical_record','first_name','last_name', 'date_of_birth']
 
-class UploadFileForm(forms.Form):
-    file = forms.FileField()
+class UploadFileForm(forms.ModelForm):
+
+      class Meta:
+         model = CSVs
+         fields = ['file_name', ]

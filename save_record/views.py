@@ -1,25 +1,35 @@
-from http.client import HTTPResponse
-from django.http import HttpResponse
 from django.shortcuts import render
-from django.views import View
+import pandas as pd
+import csv
 from .form import *
-# from .func import handle_uploaded_file
 
 
-class RecordsFile(View):
-
-    def get(self, request):
+def upload_files(request):
+    form = UploadFileForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        form = UploadFileForm()
+        obj = CSVs.objects.get(file_parsed=False)
+        with open(obj.file_name.path, 'r') as f:
+            patient_records= csv.reader(f)
+            for i, record in enumerate(patient_records):
+                if i==0:
+                    pass
+                elif len(record) == 0:
+                    pass
+                else:
+                    mr_number = record[0]
+                    first_name = record[1]
+                    last_name = record[2]
+                    date_of_birth = record[3]
+                    visit_date= record[4]
+                    reason = record[5]
+                    patient = Patients.objects.create(medical_record = mr_number,
+                                                    first_name = first_name,last_name= last_name, 
+                                                    date_of_birth = date_of_birth)
+                    visits = Visit.objects.create(patient=patient, date= visit_date, reason=reason)
+        obj.file_parsed = True
+        obj.save()
         return render(request, 'record.html')
+    return render(request, 'record.html', {'form': form})
 
-    # def post(self, request):
-    #     form = UploadFileForm(request.POST, request.FILES)
-    #     if form.is_valid():
-    #         handle_uploaded_file(request.FILES['file'])
-    #         return HttpResponseRedirect('/success/url/')
-    #     else:
-    #         form = UploadFileForm()
-    #         return render(request, 'record.html', {'form': form})
-
-class PatientRecords(View):
-    def get(self, request):
-        return HttpResponse("Hello Rochak!")

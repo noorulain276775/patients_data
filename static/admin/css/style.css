@@ -21,3 +21,7 @@ body {
 input {
     text-align: center;
 }
+
+#submit-button{
+    margin-top: 10px;
+}
