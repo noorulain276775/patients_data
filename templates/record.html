@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+{% block title %}
+Records
+{% endblock %}
+
+
+{% block body %}
+{% csrf_token %}
+<div class="container">
+    <div class="poition">
+        <h3>Choose of file</h3>
+        <form>
+            <label for="myfile">Select a file:</label>
+            <input type="file" id="myfile" name="myfile"><br><br>
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+</html>
