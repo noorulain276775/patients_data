@@ -1,5 +1,4 @@
 from django.shortcuts import render
-import pandas as pd
 import csv
 from .form import *
 
@@ -31,5 +30,5 @@ def upload_files(request):
         obj.file_parsed = True
         obj.save()
         return render(request, 'record.html')
-    return render(request, 'record.html', {'form': form})
+    return render(request, 'upload.html', {'form': form})
 
