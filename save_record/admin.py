@@ -4,3 +4,4 @@ from .models import *
 
 admin.site.register(Patients)
 admin.site.register(CSVs)
+admin.site.register(Visit)
