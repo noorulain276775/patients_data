@@ -8,17 +8,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- semantic-ui -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+
+    <!-- Jquery -->
+
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+    <!-- Custom CSS -->
+
     <link rel="stylesheet" type="text/css" href="{% static 'admin/css/style.css' %}">
+
+    <!-- Custom Javascript -->
+
     <script src="{% static 'admin/js/app.js' %}" defer></script>
+
+    <!-- Block Title -->
+
     <title>
         {% block title %}
         {% endblock %}
     </title>
 </head>
 
+    <!-- Body Block -->
+    
 <body>
     {% block body %}
     {% endblock %}
