@@ -1,23 +1,34 @@
 {% extends 'base.html' %}
-<!DOCTYPE html>
-<html lang="en">
-
 {% block title %}
 Records
-{% endblock %}
+{% endblock title %}
 
 
 {% block body %}
 <div class="ui container">
-    <h3>Patient Record</h3>
+
+    <!--  top buttons; view data and edit data  -->
+    <div class="ui container">
+        <button class="ui button primary" type="submit" id="submit-button">View Records</button>
+    </div>
+
+    <!--  For uploading files in database  -->
+    <h2>Attach the file to save it in database</h2>
     <div class="position">
-        <form action="", method="POST" class="ui form" enctype="multipart/form-data">
+        <form action="" , method="POST" class="ui form" enctype="multipart/form-data">
             {% csrf_token %}
-            {{form}}
-            <button class="ui button primary" type="submit" id="submit-button">Submit</button>
+            <label for="{{form.file_name.tag}}">Attach File</label>
+            <input type="file" name="file_name" id="id_file_name" required>
+            <button class="ui button primary" type="submit" id="submit-button" onclick="spinner()">Submit</button>
         </form>
     </div>
-</div>
-{% endblock %}
 
-</html>
+    <!--  Spinner to get data uploaded successfully  -->
+    <div class="myspinner">
+        <div class="ui active inverted dimmer not-visible" id="spinner-box">
+            <div class="ui text loader">Uploading</div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

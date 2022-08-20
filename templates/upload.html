@@ -9,9 +9,35 @@ Upload
 
 {% block body %}
 <div class="ui container">
-    <h3>File uploaded</h3>
-    <div class="position">
-        <p> File has been succesfully uploaded</p>
+    <h1> CSV Data </h1>
+    <table class="ui celled table">
+        <thead>
+            <tr>
+                <th>Mr Number</th>
+                <th>First name</th>
+                <th>Last Name</th>
+                <th>Date of birth</th>
+                <th>Date and time of visit</th>
+                <th>Reason</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if d %}
+            {% for i in d %}
+            <tr>
+                <td>{{i.mr_number}}</td>
+                <td>{{i.first_name}}</td>
+                <td>{{i.last_name}}</td>
+                <td>{{i.dob}}</td>
+                <td>{{i.date}}</td>
+                <td>{{i.reason}}</td>
+            </tr>
+            {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+    <div class="mybutton">
+        <button class="ui red button" type="submit" id="back" onclick="history.back()">Back</button>
     </div>
 </div>
 {% endblock %}

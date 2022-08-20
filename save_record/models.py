@@ -19,9 +19,4 @@ class Visit(models.Model):
         return self.patient.first_name+ ' ' + self.patient.last_name
 
 
-class CSVs(models.Model):
-    file_name = models.FileField(upload_to='csv')
-    file_parsed = models.BooleanField(default=False)
-    uploaded_at = models.DateTimeField(auto_now_add=True)
-
 

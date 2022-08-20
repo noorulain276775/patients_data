@@ -1,12 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital@1&family=Roboto:wght@500&family=Source+Code+Pro&display=swap');
-
-body {
-    background-color: rgb(230, 228, 228);
-}
-
 .position {
     height: 20vh;
     width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.not-visible {
+    display: none !important;
+}
+
+.myspinner {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mybutton {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#back {
+    margin-bottom: 20px !important;
+}
+
+h2 {
+    margin-top: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,4 +41,8 @@ input {
 
 #submit-button {
     margin-top: 10px;
+}
+
+.ui.container {
+    margin-top: 50px;
 }
