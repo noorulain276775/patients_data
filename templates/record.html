@@ -1,12 +1,23 @@
+{% extends 'base.html' %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    File uploaded
-</body>
+
+{% block title %}
+Records
+{% endblock %}
+
+
+{% block body %}
+<div class="ui container">
+    <h3>Patient Record</h3>
+    <div class="position">
+        <form action="", method="POST" class="ui form" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form}}
+            <button class="ui button primary" type="submit" id="submit-button">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
 </html>

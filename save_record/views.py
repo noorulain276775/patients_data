@@ -29,6 +29,6 @@ def upload_files(request):
                     visits = Visit.objects.create(patient=patient, date= visit_date, reason=reason)
         obj.file_parsed = True
         obj.save()
-        return render(request, 'record.html')
-    return render(request, 'upload.html', {'form': form})
+        return render(request, 'upload.html')
+    return render(request, 'record.html', {'form': form})
 

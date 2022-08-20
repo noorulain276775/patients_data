@@ -3,19 +3,15 @@
 <html lang="en">
 
 {% block title %}
-Records
+Upload
 {% endblock %}
 
 
 {% block body %}
-<div class="container">
-    <h3>Patient Record</h3>
+<div class="ui container">
+    <h3>File uploaded</h3>
     <div class="position">
-        <form action="", method="POST" class="ui form" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{form}}
-            <button class="ui button primary" type="submit" id="submit-button">Submit</button>
-        </form>
+        <p> File has been succesfully uploaded</p>
     </div>
 </div>
 {% endblock %}
