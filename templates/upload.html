@@ -9,6 +9,13 @@ Upload
 
 {% block body %}
 <div class="ui container">
+    <div class="ui success message" id="alertbox">
+        <i class="close icon"  onclick="buttonclose()"></i>
+        <div class="header">
+            Successful.
+        </div>
+        <p>You have successfully saved your csv file to database</p>
+    </div>
     <h1> CSV Data </h1>
     <table class="ui celled table">
         <thead>

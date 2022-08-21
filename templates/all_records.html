@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}
+All Records
+{% endblock title %}
+
+{% block body %}
+<div class="ui container">
+    <h1> All Patient Records </h1>
+    <table class="ui celled table">
+        <thead>
+            <tr>
+                <th>Mr Number</th>
+                <th>First name</th>
+                <th>Last Name</th>
+                <th>Date of birth</th>
+                <th>Date and time of visit</th>
+                <th>Reason</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in all_data %}
+            <tr>
+                <td>{{data.patient.medical_record}}</td>
+                <td>{{data.patient.first_name}}</td>
+                <td>{{data.patient.last_name}}</td>
+                <td>{{data.patient.date_of_birth}}</td>
+                <td>{{data.date}}</td>
+                <td>{{data.reason}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="mybutton">
+        <button class="ui red button" type="submit" id="back" onclick="history.back()">Back</button>
+    </div>
+</div>
+{% endblock body %}
