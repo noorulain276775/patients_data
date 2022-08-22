@@ -16,10 +16,6 @@ Upload
             Please wait!
         </div>
         <p>The data from csv file is being saved in the background, it will take few seconds</p>
-        {% if a %}
-        <p> You have some duplicate records in the file, click the button to view the records</p>
-        <button class="ui button primary" type="submit" id="submit-button" onclick="modalshow()">View</button>
-        {% endif %}
     </div>
 
     <!-- CSV data -->
@@ -51,44 +47,6 @@ Upload
             {% endif %}
         </tbody>
     </table>
-
-    <!-- Modal -->
-
-    <div class="ui modal" id="my_modal">
-        <div class="header"> Duplicate records</div>
-        <div class="content">
-            <table class="ui celled table">
-                <thead>
-                    <tr>
-                        <th>Mr Number</th>
-                        <th>First name</th>
-                        <th>Last Name</th>
-                        <th>Date of birth</th>
-                        <th>Date and time of visit</th>
-                        <th>Reason</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for i in a %}
-                    <tr>
-                        <td>{{i.mr_number}}</td>
-                        <td>{{i.first_name}}</td>
-                        <td>{{i.last_name}}</td>
-                        <td>{{i.dob}}</td>
-                        <td>{{i.date}}</td>
-                        <td>{{i.reason}}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-            <div class="actions">
-                <div class="ui green ok inverted button">
-                    <i class="checkmark icon" onclick="modalclose()"></i>
-                    Close
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="mybutton">
         <button class="ui red button" type="submit" id="back" onclick="history.back()">Back</button>

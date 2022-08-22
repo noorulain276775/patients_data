@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title %}
+Records
+{% endblock title %}
+
+
+{% block body %}
+
+<div class="ui container">
+    <div class="ui yellow message" id="alertbox">
+        <i class="close icon" onclick="buttonclose()"></i>
+        <div class="header">
+            Alert!
+        </div>
+        <p>The data from csv file is being saved in the background, it will take few seconds</p>
+        {% if a %}
+        <p>The highlighted columns are duplicate one</p>
+        {% endif %}
+    </div>
+
+    <h1> CSV Data </h1>
+    <table class="ui celled table">
+        <thead>
+            <th>Mr Number</th>
+            <th>First name</th>
+            <th>Last Name</th>
+            <th>Date of birth</th>
+            <th>Date and time of visit</th>
+            <th>Reason</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- duplicate data -->
+            {% for b in a %}
+            <tr class="highlight">
+                <td style="background-color: rgb(251, 217, 223)">{{b.mr_number}}</td>
+                <td style="background-color: rgb(251, 217, 223)">{{b.first_name}}</td>
+                <td style="background-color: rgb(251, 217, 223)">{{b.last_name}}</td>
+                <td style="background-color: rgb(251, 217, 223)">{{b.dob}}</td>
+                <td style="background-color: rgb(251, 217, 223)">{{b.date}}</td>
+                <td style="background-color: rgb(251, 217, 223)">{{b.reason}}</td>
+            </tr>
+            {% endfor %}
+            <!-- unique data -->
+            {% for i in d %}
+            <tr>
+                <td>{{i.mr_number}}</td>
+                <td>{{i.first_name}}</td>
+                <td>{{i.last_name}}</td>
+                <td>{{i.dob}}</td>
+                <td>{{i.date}}</td>
+                <td>{{i.reason}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="mybutton" id="back">
+        <button class="ui green button" type="submit" id="back" onclick="history.back()">Back</button>
+    </div>
+    {% endblock body %}
