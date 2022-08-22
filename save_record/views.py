@@ -9,7 +9,10 @@ def upload_files(request):
     form = UploadFileForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         csvfile = request.FILES['file_name']
-        data = pd.read_csv(csvfile.name)
+        try:
+            data = pd.read_csv(csvfile.name)
+        except FileNotFoundError:
+            return render(request, 'error.html')
         arr = data.to_dict('records')
         context = {'d': arr}
         patient_instances = []
