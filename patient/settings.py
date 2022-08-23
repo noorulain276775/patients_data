@@ -59,8 +59,6 @@ CELERY_TASK_SERIALIZER = 'json'
 
 ROOT_URLCONF = 'patient.urls'
 
-CRISPY_TEMPLATE_PACK= 'bootstrap4'
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

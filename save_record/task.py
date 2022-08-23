@@ -73,7 +73,7 @@ def saving_csv_in_database(arr):
         # Create unique entries in database 
         # We are printing the results to check if everyting is working fine in celery task
 
-        if len(patient_instances)> 0:
+        if len(patient_instances) > 0:
             print(f'total number of {len(patient_instances)} new records are being added in database')
             Visit.objects.bulk_create(patient_instances)
             success = print("Yay! Unique data has been saved to database successfully!")
