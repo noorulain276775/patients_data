@@ -1,5 +1,5 @@
 """
-Using celery and sendgrid for email notification
+Using celery and sendgrid for email notification and adding only unique data in database
 
 """
 
@@ -55,6 +55,7 @@ def saving_csv_in_database(arr):
 
         if len(duplicate_records_in_database)>0:
             print("There are 24 duplicated records")
+            print('sending the mail to notify user')
             message = Mail(
                 from_email='noorulainibrahim75@gmail.com',
                 to_emails='noorulainibrahim123456@gmail.com',
@@ -70,9 +71,17 @@ def saving_csv_in_database(arr):
                 print("error")
 
         # Create unique entries in database 
-        Visit.objects.bulk_create(patient_instances)
-        success = print("Yay! Unique data has been saved to database successfully!")
-        return success
+        # We are printing the results to check if everyting is working fine in celery task
+
+        if len(patient_instances)> 0:
+            print(f'total number of {len(patient_instances)} new records are being added in database')
+            Visit.objects.bulk_create(patient_instances)
+            success = print("Yay! Unique data has been saved to database successfully!")
+            return success
+        else:
+            print("No new records")
+            no_new_data = print("No new data to save")
+            return no_new_data
     except:
         error= print("Something went wrong")
         return error

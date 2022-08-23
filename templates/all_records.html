@@ -5,6 +5,7 @@ All Records
 
 {% block body %}
 <div class="ui container">
+    {% if all_data %}
     <h1> All Patient Records </h1>
     <table class="ui celled table">
         <thead>
@@ -33,5 +34,14 @@ All Records
     <div class="mybutton">
         <button class="ui red button" type="submit" id="back" onclick="history.back()">Back</button>
     </div>
+
+    {% else %}
+    <div class="error">
+        <h1> No data to display </h1>
+        <div>
+            <a href="/record">Go back to Home page</a>
+        </div>
+    </div>
+    {% endif %}
 </div>
 {% endblock body %}
