@@ -2,7 +2,7 @@
 ## Celery and Redis with Django
 
 ### Used celery with django and sendgrid to schedule a task and send email notification
-- Notifying user via email about duplicate data already exist in database and saving only unique data.
+- Notifying user via email about duplicate data and saving only unique one.
 
 ### View records
 - User can view all the data from the database.
